@@ -1,181 +1,171 @@
-// index.js
-export const servicesData = [
-  {
-    title: "FullStack Development",
-    description:
-      "Your business deserves a fast, secure, and future-proof digital foundation. I develop custom web apps with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
-    items: [
-      {
-        title: "Backend Engineering",
-        description: "(REST/GraphQL APIs, Microservices, Auth Systems)",
-      },
-      {
-        title: "Frontend Excellence",
-        description: "(React, Vue, TypeScript, Interactive UI/UX)",
-      },
-      {
-        title: "Database Design",
-        description: "(SQL/NoSQL Optimization, Scalable Structures)",
-      },
-    ],
-  },
-  {
-    title: "DevOps & Cloud Solutions",
-    description:
-      "Deploying software shouldn't be a gamble. I automate infrastructure, enforce security, and leverage cloud platforms (AWS/Azure) to keep your app running smoothly—24/7, at any scale.",
-    items: [
-      {
-        title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes)",
-      },
-      {
-        title: "Server Management ",
-        description: "(Linux, Nginx, Load Balancing)",
-      },
-      {
-        title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
-      },
-    ],
-  },
-  {
-    title: "Security & Optimization",
-    description:
-      "Slow or hacked apps destroy trust. I harden security (XSS/SQLI protection, OAuth) and optimize bottlenecks so your app stays fast, safe, and scalable as you grow.",
-    items: [
-      {
-        title: "Code Audits",
-        description: "(Refactoring, Tech Debt Cleanup)",
-      },
-      {
-        title: "Pen Testing",
-        description: "(Vulnerability Assessments)",
-      },
-      {
-        title: "SEO Tech Stack",
-        description: "(SSR, Metadata, Structured Data)",
-      },
-    ],
-  },
-  {
-    title: "Web & Mobile Apps",
-    description:
-      "A clunky interface can sink even the best ideas. I craft responsive, pixel perfect web and mobile apps (React Native/Flutter) that users love—bridging design and functionality seamlessly.",
-    items: [
-      {
-        title: "Cross-Platform Apps",
-        description: "(Single codebase for iOS/Android/Web)",
-      },
-      {
-        title: "PWAs",
-        description: "(Offline mode, Push Notifications)",
-      },
-      {
-        title: "E-Commerce",
-        description: "(Checkout flows, Payment Gateways, Inventory APIs)",
-      },
-    ],
-  },
-];
-export const projects = [
-  {
-    id: 1,
-    name: "Mobile Accessories E-commerce",
-    description:
-      "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
-    href: "",
-    image: "/assets/projects/mobile-accessories-store.jpg",
-    bgImage: "/assets/backgrounds/blanket.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Node.js" },
-      { id: 4, name: "MongoDB" },
-      { id: 5, name: "Tailwind CSS" },
-    ],
-  },
-  {
-    id: 2,
-    name: "Plant Shop E-commerce",
-    description:
-      "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
-    href: "",
-    image: "/assets/projects/plant-shop.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Stripe API" },
-      { id: 4, name: "Tailwind CSS" },
-    ],
-  },
-  {
-    id: 3,
-    name: "Apple Tech Marketplace",
-    description:
-      "An e-commerce platform for Apple products and accessories with deals and category filtering.",
-    href: "",
-    image: "/assets/projects/apple-tech-store.jpg",
-    bgImage: "/assets/backgrounds/map.jpg",
-    frameworks: [
-      { id: 1, name: "Blazor" },
-      { id: 2, name: "ASP.NET Core" },
-      { id: 3, name: "SQL Server" },
-      { id: 4, name: "Bootstrap" },
-    ],
-  },
-  {
-    id: 4,
-    name: "Electronics & Gadgets Store",
-    description:
-      "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
-    href: "",
-    image: "/assets/projects/electronics-store.jpg",
-    bgImage: "/assets/backgrounds/poster.jpg",
-    frameworks: [
-      { id: 1, name: "Vue.js" },
-      { id: 2, name: "Laravel" },
-      { id: 3, name: "MySQL" },
-      { id: 4, name: "SCSS" },
-    ],
-  },
-  {
-    id: 5,
-    name: "Home Decor Marketplace",
-    description:
-      "A curated collection of designer home decor items, including furniture and artisan vases.",
-    href: "",
-    image: "/assets/projects/home-decor-store.jpg",
-    bgImage: "/assets/backgrounds/table.jpg",
-    frameworks: [
-      { id: 1, name: "Angular" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
-    ],
-  },
-  {
-    id: 6,
-    name: "Digital Game Store",
-    description:
-      "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
-    href: "",
-    image: "/assets/projects/game-store.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Svelte" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
-    ],
-  },
-];
-export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ali.sanatidev/reels/" },
-  {
-    name: "Youtube",
-    href: "https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA",
-  },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/ali-sanati/" },
-  { name: "GitHub", href: "https://github.com/Ali-Sanati" },
-];
+import React, { useEffect, useRef, useState } from "react";
+import { socials } from "../constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { Link } from "react-scroll";
+
+const Navbar = () => {
+  const navRef = useRef(null);
+  const linksRef = useRef([]);
+  const contactRef = useRef(null);
+  const topLineRef = useRef(null);
+  const bottomLineRef = useRef(null);
+  const tl = useRef(null);
+  const iconTl = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showBurger, setShowBurger] = useState(true);
+  useGSAP(() => {
+    gsap.set(navRef.current, { xPercent: 100 });
+    gsap.set([linksRef.current, contactRef.current], {
+      autoAlpha: 0,
+      x: -20,
+    });
+
+    tl.current = gsap
+      .timeline({ paused: true })
+      .to(navRef.current, {
+        xPercent: 0,
+        duration: 1,
+        ease: "power3.out",
+      })
+      .to(
+        linksRef.current,
+        {
+          autoAlpha: 1,
+          x: 0,
+          stagger: 0.1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "<"
+      )
+      .to(
+        contactRef.current,
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "<+0.2"
+      );
+
+    iconTl.current = gsap
+      .timeline({ paused: true })
+      .to(topLineRef.current, {
+        rotate: 45,
+        y: 3.3,
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
+      .to(
+        bottomLineRef.current,
+        {
+          rotate: -45,
+          y: -3.3,
+          duration: 0.3,
+          ease: "power2.inOut",
+        },
+        "<"
+      );
+  }, []);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      setShowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
+
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    if (isOpen) {
+      tl.current.reverse();
+      iconTl.current.reverse();
+    } else {
+      tl.current.play();
+      iconTl.current.play();
+    }
+    setIsOpen(!isOpen);
+  };
+  return (
+    <>
+      <nav
+        ref={navRef}
+        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+      >
+        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
+          {["home", "services", "about", "work", "contact"].map(
+            (section, index) => (
+              <div key={index} ref={(el) => (linksRef.current[index] = el)}>
+                <Link
+                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                  to={`${section}`}
+                  smooth
+                  offset={0}
+                  duration={2000}
+                >
+                  {section}
+                </Link>
+              </div>
+            )
+          )}
+        </div>
+        <div
+          ref={contactRef}
+          className="flex flex-col flex-wrap justify-between gap-8 md:flex-row"
+        >
+          <div className="font-light">
+            <p className="tracking-wider text-white/50">E-mail</p>
+            <p className="text-xl tracking-widest lowercase text-pretty">
+              deepakchhantyal4156@gmail.com
+            </p>
+          </div>
+          <div className="font-light">
+            <p className="tracking-wider text-white/50">Social Media</p>
+            <div className="flex flex-col flex-wrap md:flex-row gap-x-2">
+              {socials.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="text-sm leading-loose tracking-widest uppercase hover:text-white transition-colors duration-300"
+                >
+                  {"{ "}
+                  {social.name}
+                  {" }"}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div
+        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+        onClick={toggleMenu}
+        style={
+          showBurger
+            ? { clipPath: "circle(50% at 50% 50%)" }
+            : { clipPath: "circle(0% at 50% 50%)" }
+        }
+      >
+        <span
+          ref={topLineRef}
+          className="block w-8 h-0.5 bg-white rounded-full origin-center"
+        ></span>
+        <span
+          ref={bottomLineRef}
+          className="block w-8 h-0.5 bg-white rounded-full origin-center"
+        ></span>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;
